@@ -1,9 +1,5 @@
-//
-//  SceneDelegate.swift
-//  ViewControllers
-//
-//  Created by Sravya Kaki on 10/16/20.
-//  Copyright © 2020 Sravya Kaki. All rights reserved.
+// 
+//  Copyright © 2020 Big Nerd Ranch
 //
 
 import UIKit

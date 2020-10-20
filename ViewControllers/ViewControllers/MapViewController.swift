@@ -1,9 +1,13 @@
-//
-//  MapViewController.swift
-//  ViewControllers
-//
-//  Created by Sravya Kaki on 10/19/20.
-//  Copyright © 2020 Sravya Kaki. All rights reserved.
+// 
+//  Copyright © 2020 Big Nerd Ranch
 //
 
-import Foundation
+import UIKit
+
+class MapViewController: UIViewController {
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        print("MapViewController loaded its view.")
+    }
+}
