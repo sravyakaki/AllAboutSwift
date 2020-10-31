@@ -65,15 +65,21 @@ class ConversionViewController: UIViewController, UITextFieldDelegate {
     func textField(_ textfield: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         let existingTextHasDecimalSeparator = textfield.text?.range(of: ".")
         let replacementTextHasDecimalSeparator = string.range(of: ".")
+        let allowedCharacters = CharacterSet(charactersIn: "0123456789.")
+        let characterSet = CharacterSet(charactersIn: string)
+        let finalValueEntryString = allowedCharacters.isSuperset(of: characterSet)
         
         if existingTextHasDecimalSeparator != nil,
             replacementTextHasDecimalSeparator != nil {
             return false
-        } else {
+        } else if finalValueEntryString {
             return true
+        } else {
+            return false
         }
         
     }
+    
 
 }
 
