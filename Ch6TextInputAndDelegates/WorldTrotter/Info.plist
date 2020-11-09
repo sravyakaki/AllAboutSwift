@@ -47,6 +47,12 @@
 	<array>
 		<string>armv7</string>
 	</array>
+	<key>NSLocationAlwaysUsageDescription</key>
+	<string>We need to access your location to display nearby points of interest</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>We need to access your location to display nearby points of interest</string>
+	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+	<string>We need to access your location to display nearby points of interest</string>
 	<key>UISupportedInterfaceOrientations</key>
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>

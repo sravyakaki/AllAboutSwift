@@ -93,6 +93,9 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     </mapView>
                     <tabBarItem key="tabBarItem" title="Map" image="MapIcon" id="86V-MB-BSH"/>
+                    <connections>
+                        <outlet property="mapView" destination="waW-Mv-qLf" id="IrC-0a-P6G"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cbz-9f-cl7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
