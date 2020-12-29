@@ -23,6 +23,68 @@ class Item: Equatable, Codable {
     var serialNumber: String?
     var dateCreated: Date
     
+    enum Category {
+        case electronics
+        case clothing
+        case book
+        case other
+    }
+    
+    var category = Category.other
+    
+    enum CodingKeys: String, CodingKey {
+        case name
+        case valueInDollars
+        case serialNumber
+        case dateCreated
+        case category
+    }
+    
+    func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
+        
+        try container.encode(name, forKey: .name)
+        try container.encode(valueInDollars, forKey: .valueInDollars)
+        try container.encode(serialNumber, forKey: .serialNumber)
+        try container.encode(dateCreated, forKey: .dateCreated)
+        
+        switch  category {
+        case .electronics:
+            try container.encode("electronics", forKey: .category)
+        case .clothing:
+            try container.encode("clothing", forKey: .category)
+        case .book:
+            try container.encode("book", forKey: .category)
+        case .other:
+            try container.encode("other", forKey: .category)
+        }
+        
+    }
+    
+    required init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        
+        name = try container.decode(String.self, forKey: .name)
+        valueInDollars = try container.decode(Int.self, forKey: .valueInDollars)
+        serialNumber = try container.decode(String?.self, forKey: .serialNumber)
+        dateCreated = try container.decode(Date.self, forKey: .dateCreated)
+        
+        let CategoryString = try container.decode(String.self, forKey: .category)
+        switch CategoryString {
+        case "electronics":
+            category = .electronics
+        case "clothing":
+            category = .clothing
+        case "book":
+            category = .book
+        case "other":
+            category = .other
+        default:
+            category = .other
+            
+        }
+    }
+    
     init(name: String, serialNumber: String?, valueInDollars: Int) {
         self.name = name
         self.valueInDollars = valueInDollars
@@ -51,3 +113,5 @@ class Item: Equatable, Codable {
         }
     }
 }
+
+
