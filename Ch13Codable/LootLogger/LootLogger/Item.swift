@@ -81,7 +81,6 @@ class Item: Equatable, Codable {
             category = .other
         default:
             category = .other
-            
         }
     }
     
