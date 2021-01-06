@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Mood Selection View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="MoodSelectionViewController" customModule="Mandala" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Hgh-Tz-XXa">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <connections>
+                                    <segue destination="Bi6-4J-oMB" kind="embed" identifier="embedContainerViewController" id="drx-lo-NXt"/>
+                                </connections>
+                            </containerView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hE2-mY-Vtr">
+                                <rect key="frame" x="103.5" y="720" width="207" height="48"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="48" id="H57-tj-YwA"/>
+                                </constraints>
+                                <state key="normal" title="Add Mood">
+                                    <color key="titleColor" red="0.96078431369999995" green="0.95686274510000002" blue="0.94509803920000002" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="addMoodTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Nml-hP-e00"/>
+                                </connections>
+                            </button>
+                            <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="e0g-99-w4L">
+                                <rect key="frame" x="0.0" y="788" width="414" height="108"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="g3U-BF-HjA">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="108"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    <subviews>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="K7H-ps-fJS" customClass="ImageSelector" customModule="Mandala" customModuleProvider="target">
+                                            <rect key="frame" x="8" y="16" width="398" height="50"/>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="50" id="mVH-DH-1Qf"/>
+                                            </constraints>
+                                            <connections>
+                                                <action selector="moodSelectionChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="ig8-46-Wkr"/>
+                                            </connections>
+                                        </view>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="K7H-ps-fJS" firstAttribute="leading" secondItem="g3U-BF-HjA" secondAttribute="leadingMargin" id="2ek-2x-yuh"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="K7H-ps-fJS" secondAttribute="trailing" id="Nra-l1-1Hf"/>
+                                        <constraint firstItem="K7H-ps-fJS" firstAttribute="top" secondItem="g3U-BF-HjA" secondAttribute="topMargin" constant="8" id="nIz-tO-IyZ"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="K7H-ps-fJS" secondAttribute="bottom" id="zlo-cD-1bn"/>
+                                    </constraints>
+                                </view>
+                                <blurEffect style="regular"/>
+                            </visualEffectView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="e0g-99-w4L" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="0zk-wC-bwH"/>
+                            <constraint firstItem="Hgh-Tz-XXa" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="2qM-el-coA"/>
+                            <constraint firstItem="hE2-mY-Vtr" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="B4c-SV-6rs"/>
+                            <constraint firstItem="e0g-99-w4L" firstAttribute="top" secondItem="hE2-mY-Vtr" secondAttribute="bottom" constant="20" id="Bfe-fW-ora"/>
+                            <constraint firstAttribute="trailing" secondItem="e0g-99-w4L" secondAttribute="trailing" id="Vhe-0n-sAL"/>
+                            <constraint firstAttribute="bottom" secondItem="e0g-99-w4L" secondAttribute="bottom" id="c52-ql-rTI"/>
+                            <constraint firstAttribute="trailing" secondItem="Hgh-Tz-XXa" secondAttribute="trailing" id="fI7-DE-YiT"/>
+                            <constraint firstItem="hE2-mY-Vtr" firstAttribute="width" secondItem="6Tk-OE-BBY" secondAttribute="width" multiplier="0.5" id="j3E-0s-Lp4"/>
+                            <constraint firstAttribute="bottom" secondItem="Hgh-Tz-XXa" secondAttribute="bottom" id="j99-nB-5mT"/>
+                            <constraint firstItem="Hgh-Tz-XXa" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="zkh-AP-4ve"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                    </view>
+                    <connections>
+                        <outlet property="addMoodButton" destination="hE2-mY-Vtr" id="drd-oh-H97"/>
+                        <outlet property="moodSelector" destination="K7H-ps-fJS" id="HZc-by-MDe"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="137.68115942028987" y="135.9375"/>
+        </scene>
+        <!--Mood List View Controller-->
+        <scene sceneID="MVk-fQ-Yvv">
+            <objects>
+                <tableViewController id="Bi6-4J-oMB" customClass="MoodListViewController" customModule="Mandala" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="mCc-SC-Rxy">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="UITableViewCell" textLabel="OZN-QR-WNb" detailTextLabel="vtn-Yi-zcb" style="IBUITableViewCellStyleSubtitle" id="gE6-i7-829">
+                                <rect key="frame" x="0.0" y="28" width="414" height="55.5"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="gE6-i7-829" id="XZP-da-AgH">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="55.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="OZN-QR-WNb">
+                                            <rect key="frame" x="20" y="10" width="33.5" height="20.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Subtitle" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="vtn-Yi-zcb">
+                                            <rect key="frame" x="20" y="31.5" width="44" height="14.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="Bi6-4J-oMB" id="yiY-CQ-3EB"/>
+                            <outlet property="delegate" destination="Bi6-4J-oMB" id="HF4-5c-QQS"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="DOd-14-252" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1114" y="136"/>
+        </scene>
+    </scenes>
+</document>

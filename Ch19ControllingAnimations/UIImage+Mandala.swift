@@ -1,0 +1,28 @@
+//
+//  UIImage+Mandala.swift
+//  Mandala
+//
+//  Created by Sravya Kaki on 1/1/21.
+//  Copyright © 2021 Sravya Kaki. All rights reserved.
+//
+
+import UIKit
+
+enum ImageResource: String {
+    case angry
+    case confused
+    case crying
+    case goofy
+    case happy
+    case meh
+    case sad
+    case sleepy
+}
+
+extension UIImage {
+    
+    convenience init(resource: ImageResource) {
+        self.init(named: resource.rawValue)!
+    }
+    
+}
