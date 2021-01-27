@@ -5,7 +5,7 @@ Each app is designed with an objective to explain the core concepts in detail.
 Every chapter is split into a separate branch.
 
 # Contents
-1. [https://github.com/sravyakaki/AllAboutSwift/tree/AutoLayoutConstraints](# Contents)
+1. [AutoLayout](https://github.com/sravyakaki/AllAboutSwift/tree/AutoLayoutConstraints)
 
 
 
