@@ -10,7 +10,10 @@ import SwiftUI
 struct MenuItemView: View {
     @State private var addedItem:Bool = false
     @Binding var item:MenuItem
+    @State var presentAlert:Bool = false
     @ObservedObject var orders:OrderModel
+    @State private var newOrder:Bool = true
+    @State private var order = noOrderItem
     var body: some View {
         VStack {
             HStack {
@@ -49,8 +52,8 @@ struct MenuItemView: View {
                 
             }
             Button{
-                addedItem = true
-                orders.addOrder(item, quantity: 1)
+                order = OrderItem(id: -999, item: item)
+                presentAlert = true
             } label:{
                 Spacer()
                 Text(item.price,format:.currency(code: "USD")).bold()
@@ -62,6 +65,23 @@ struct MenuItemView: View {
             .background(.red,in:Capsule())
             .foregroundStyle(.white)
             .padding(5)
+//            .alert("Buy a \(item.name)",isPresented: $presentAlert){
+//                Button("No", role:.cancel){}
+//                Button("Yes"){
+//                    addedItem = true
+//                    orders.addOrder(item, quantity: 1)
+//                }
+//                Button("Make it a double!"){
+//                    addedItem = true
+//                    orders.addOrder(item, quantity: 2)
+//                }
+//            }
+            .sheet(isPresented:$presentAlert){
+                addedItem = true
+            } content:{
+                OrderDetailView(orderItem: $order, presentSheet: $presentAlert, newOrder: $newOrder)
+            }
+            
         }
     }
 }
